@@ -2,25 +2,20 @@ import React, { useState } from 'react';
 import {
     Box,
     Flex,
-    Text
-  } from 'rebass'
-import styled from 'styled-components'
+    Text,
+} from 'rebass'
 import { fetchRandomEmoji } from '../utils';
-
-  const Input = styled.input`
-    width: 80%;
-    border: 1px solid #ccc;
-    height: 30px;
-    font-size: large;
-    margin-top: 30px;
-    border-radius: 5px;
-  `;
+import { Input, StyledButton } from './Utils';
 
 const Main = () => {
-    const [value, setValue] = useState('');
+    const [url, setUrl] = useState('');
 
     const handleInputChange = (event) => {
-      setValue(event.target.value)
+      setUrl(event.target.value)
+    }
+
+    function validateUrl() {
+      return !url.startsWith('https://www.instagram.com/');
     }
 
     return (
@@ -35,13 +30,28 @@ const Main = () => {
                     fontSize={[ 2, 3, 4 ]}
                     fontWeight='light'
                 >
-                <em>* Paste a link to the video below</em>
+                  <em>* Paste a link to the video below</em>
+                </Text>
+                <Text
+                    fontSize={[ 1, 2, 3 ]}
+                    fontWeight='light'
+                >
+                  <em>* Only works with videos that are publicly available </em>
                 </Text>
                 <Input
-                placeholder="https://www.instagram.com/p/BXFTAZTBELn/"
-                type="url" onChange={handleInputChange} value={value} />
+                  placeholder="https://www.instagram.com/p/BXFTAZTBELn/"
+                  type="url"
+                  onChange={handleInputChange}
+                  value={url}
+                />
                 <Box my={20}>
-                    <button disabled>{`Click Me ${fetchRandomEmoji()}`}</button>
+                    <StyledButton
+                      width={[ 1, 1, 1/2 ]}
+                      disabled={validateUrl()}
+                      onClick={() => console.log('click')}
+                    >
+                      {`Click Me ${fetchRandomEmoji()}`}
+                    </StyledButton>
                 </Box>
             </Box>
         </Flex>
