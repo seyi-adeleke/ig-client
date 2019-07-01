@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import React from 'react';
+
 import {
     Button,
   } from 'rebass'
@@ -17,3 +19,16 @@ export const StyledButton = styled(Button)({
     backgroundColor: props => props.disabled ? 'whitesmoke' : 'white',
     color: props => props.disabled ? 'grey' : 'black',
 });
+
+
+export const Fetching = () => {
+    return (
+    <em>* Fetching
+        <span className="ellipsis">
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+        </span>
+    </em>
+    );
+}
