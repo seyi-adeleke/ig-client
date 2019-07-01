@@ -14,8 +14,15 @@ const Main = () => {
       setUrl(event.target.value)
     }
 
-    function validateUrl() {
+    function valideUrl() {
       return !url.startsWith('https://www.instagram.com/');
+    }
+
+    function toggleButtonCopy() {
+      if(!valideUrl()) {
+        return `Click Me ${fetchRandomEmoji()}`
+      }
+      return '⬆️ Paste a link here ⬆️'
     }
 
     return (
@@ -47,10 +54,11 @@ const Main = () => {
                 <Box my={20}>
                     <StyledButton
                       width={[ 1, 1, 1/2 ]}
-                      disabled={validateUrl()}
+                      disabled={valideUrl()}
                       onClick={() => console.log('click')}
+                      className='submit-button'
                     >
-                      {`Click Me ${fetchRandomEmoji()}`}
+                      {toggleButtonCopy()}
                     </StyledButton>
                 </Box>
             </Box>

@@ -13,7 +13,7 @@ export const Input = styled.input`
 `;
 
 export const StyledButton = styled(Button)({
-    border: '1px solid #ccc',
-    backgroundColor: props => props.disabled ? 'grey' : 'whitesmoke',
-    color:'black'
+    border: props => props.disabled ? '1px solid whitesmoke' : '1px solid black',
+    backgroundColor: props => props.disabled ? 'whitesmoke' : 'white',
+    color: props => props.disabled ? 'grey' : 'black',
 });

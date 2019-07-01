@@ -1,3 +1,7 @@
 .App {
   text-align: center;
 }
+
+.submit-button:hover:enabled {
+  border: 2px solid;
+}
