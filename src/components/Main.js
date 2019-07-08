@@ -43,7 +43,7 @@ const Main = () => {
 
     return (
         <Flex flexDirection="center" justifyContent='center'>
-            <Box width={3/4} my={40} px={2} color='black'>
+            <Box width={3/4} my={100} px={2} color='black'>
                 <Text
                     fontSize={[ 3, 4, 5 ]}
                     fontWeight='bold'
@@ -69,7 +69,7 @@ const Main = () => {
                 />
                 <Box my={20}>
                     <StyledButton
-                      width={[ 1, 1, 1/2 ]}
+                      width={[ 3/4, 1/2, 1/2 ]}
                       disabled={validUrl(url)}
                       onClick={() => fetchVideoUrl()}
                       className='submit-button'
