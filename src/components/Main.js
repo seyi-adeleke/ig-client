@@ -27,11 +27,23 @@ const Main = () => {
 
     function fetchVideoUrl() {
         setFetching(true);
-        axios.post('http://localhost:5000/api/v1/url', {
-          url,
+        axios({
+          method: 'post',
+          url: 'http://localhost:5000/api/v1/url',
+          responseType: 'blob',
+          data: {
+            url,
+          }
         }).then(response => {
+            //please forgive me for this :(
+            const blob = new Blob([response.data], { type: 'video/mp4' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = 'filename';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
             setFetching(false);
-            window.open(response.data.url, '_blank');
         }).catch((error) => {
             setFetching(false);
             setShowErrorMessage(true);
