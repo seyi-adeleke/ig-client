@@ -29,7 +29,7 @@ const Main = () => {
         setFetching(true);
         axios({
           method: 'post',
-          url: 'http://localhost:5000/api/v1/url',
+          url: `${process.env.REACT_APP_SERVER_URL}/url`,
           responseType: 'blob',
           data: {
             url,
@@ -39,7 +39,7 @@ const Main = () => {
             const blob = new Blob([response.data], { type: 'video/mp4' });
             const link = document.createElement('a');
             link.href = window.URL.createObjectURL(blob);
-            link.download = 'filename';
+            link.download = 'file';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
