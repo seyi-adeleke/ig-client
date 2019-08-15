@@ -108,7 +108,7 @@ const Main = () => {
                           fontWeight='light'
                           color='red'
                       >
-                        There was an error fetching this video! Check the Url and ensure the video is publically available
+                        There was an error fetching this video! Check the Url and ensure the video is publicly available
                       </Text>
                     </Box>
                 }
