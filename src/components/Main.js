@@ -45,6 +45,7 @@ const Main = () => {
             document.body.removeChild(link);
             setFetching(false);
         }).catch((error) => {
+            console.log(error);
             setFetching(false);
             setShowErrorMessage(true);
             setTimeout(() => {
