@@ -6,7 +6,7 @@ import {
 } from 'rebass';
 import axios from 'axios';
 
-import { fetchRandomEmoji, validUrl } from '../utils';
+import { fetchRandomEmoji, validUrl, detectDevice } from '../utils';
 import { Input, StyledButton, Fetching } from './Utils';
 
 const Main = () => {
@@ -45,7 +45,6 @@ const Main = () => {
             document.body.removeChild(link);
             setFetching(false);
         }).catch((error) => {
-            console.log(error);
             setFetching(false);
             setShowErrorMessage(true);
             setTimeout(() => {
@@ -84,7 +83,7 @@ const Main = () => {
                     <StyledButton
                       width={[ 3/4, 1/2, 1/2 ]}
                       disabled={validUrl(url)}
-                      onClick={() => fetchVideoUrl()}
+                      onClick={fetchVideoUrl}
                       className='submit-button'
                     >
                       {toggleButtonCopy()}
